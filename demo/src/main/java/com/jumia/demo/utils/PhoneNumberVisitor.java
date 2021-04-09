@@ -11,10 +11,11 @@ import java.util.regex.Pattern;
 public class PhoneNumberVisitor {
 
     @Autowired
-    CountryCodeLookupCache cache;
+    CountryCodeLookupCache lookupCache;
 
+    // This visitor sets the transient fields of the CustomerInfo entity upon retrieval
     public void visit(CustomerInfo customerInfo){
-        CountryInfo countryInfo = cache.find(customerInfo.getCountryCode());
+        CountryInfo countryInfo = lookupCache.find(customerInfo.getCountryCode());
         if(countryInfo == null)
             return;
         customerInfo.setValid(Pattern.matches(countryInfo.getRegex(), customerInfo.getPhone()));
