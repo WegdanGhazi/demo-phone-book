@@ -13,6 +13,10 @@ public class CountryInfoService implements ICountryInfoService {
     @Autowired
     private CountryCodeLookupCache cache;
 
+    /**
+     *
+     * @return A list of available countries, containing name, country code, and regex to mach number validity
+     */
     @Override
     public Collection<CountryInfo> findAllCountries() {
         return cache.getValues();
