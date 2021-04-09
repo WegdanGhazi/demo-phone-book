@@ -2,12 +2,18 @@ package com.jumia.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jumia.demo.utils.PhoneNumberVisitor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "customer")
+@Getter
+@Setter
+@NoArgsConstructor
 public class CustomerInfo {
 
     @Id
@@ -26,57 +32,11 @@ public class CustomerInfo {
     @Transient
     private String country;
 
-    public CustomerInfo() {}
-
+    // Initialization constructor to be used in tests only
     public CustomerInfo(Long id, String name, String phone) {
         this.id = id;
         this.name = name;
         this.phone = phone;
-    }
-
-    public CustomerInfo(String name, String phone) {
-        this.name = name;
-        this.phone = phone;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     // extracting country code between "(" & ")" using StringUtils

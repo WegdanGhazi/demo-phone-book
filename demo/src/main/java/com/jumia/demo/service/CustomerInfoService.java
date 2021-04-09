@@ -10,26 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
+
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true) // Not explicitly needed but it's good to enforce readOnly restriction
 public class CustomerInfoService implements ICustomerInfoService {
 
     @Autowired
     private CustomerInfoRepository repository;
 
-    @Autowired
-    private CountryCodeLookupCache cache;
+
 
     @Autowired
     private PhoneNumberVisitor visitor;
 
-    @Override
-    public Collection<CountryInfo> findCountries() {
-        return cache.getValues();
-    }
+
 
     @Override
     public Page<CustomerInfo> findAll(int page, int size, String sortBy, Boolean desc) {
@@ -40,7 +38,7 @@ public class CustomerInfoService implements ICustomerInfoService {
     }
 
     @Override
-    public Page<CustomerInfo> findByCountryCode(int page, int size, String sortBy, Boolean desc, String q, Boolean valid) {
+    public Page<CustomerInfo> findByCountryCodeOrValidity(int page, int size, String sortBy, Boolean desc, String q, Boolean valid) {
         List<CustomerInfo> result;
         Sort sort = createSortParameter(sortBy, desc);
         // checking on filtering by country
@@ -54,7 +52,6 @@ public class CustomerInfoService implements ICustomerInfoService {
         result.stream().forEach(visitor::visit);
 
         if(valid != null){
-//            boolean validStatus = Boolean.valueOf(valid);
             result.removeIf(customerInfo -> Boolean.compare(valid, customerInfo.isValid()) != 0);
         }
 
