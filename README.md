@@ -7,6 +7,8 @@ This is a test project created for a skill showcase of a restful fullstack Web p
 Front end: Angular & Angular material.
 Back-end: Spring Boot.
 
+Additionally, Postman was used for endpoint testing.
+
 ## Version info
 
 Front End
@@ -24,8 +26,9 @@ Back End
 
 The task which this project tackles is a single-page web app to display a list of phone numbers, for which a set of rules were given to check & display phone number validity (state), as defined by the country code, and the phone number regex corresponding to each country.
 
-* Implement Filtering by phone number validity, country, or both
-* Implement Pagination & Sorting (bonus requirement)
+* Implement Filtering by phone number validity, country, or both.
+* Implement Pagination & Sorting (bonus requirement).
+* Add unit test for services.
 
 ## Available data
 
@@ -45,6 +48,7 @@ The task which this project tackles is a single-page web app to display a list o
 ## Enhancement plan for existing code
 
 * Using Swagger for Endpoint documentation and testing.
+* Security & validation enhancements.
 
 ## How to run the project
 ### Front End
