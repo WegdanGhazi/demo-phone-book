@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { Page } from '../models/page.model';
 import { Observable, of } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import { BaseUrL } from '../models/url.const';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerService {
 
-    private baseUrl = 'http://localhost:8080/';
-    private searchUrl = `${this.baseUrl}search/`;
+    private baseUrl = BaseUrL.Url;
+    private searchUrl = this.baseUrl +'search/';
 
     constructor(private httpClient: HttpClient) { }
 

@@ -13,7 +13,7 @@
           </mat-option>
         </mat-select>
     </mat-form-field>
-    <!-- <mat-divider vertical></mat-divider> -->
+
     <mat-form-field appearance="fill">
       <mat-label>Filter by status</mat-label>
       <mat-select [formControl]="statusFormControl" (selectionChange)="onSelectionChange()">
@@ -25,32 +25,33 @@
   </form>
 </div>
 
+<!-- Table -->
 <div class="content" role="main">
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
-      <!-- Name Column -->
+      <!-- Name Column | sortable -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
         <td mat-cell *matCellDef="let row"> {{row.name}} </td>
       </ng-container>
   
-      <!-- Phone number Column -->
+      <!-- Phone number Column  | sortable  -->
       <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
         <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
       </ng-container>
   
-      <!-- Country Column -->
+      <!-- Country Column  | non-sortable  -->
       <ng-container matColumnDef="country">
-        <th mat-header-cell *matHeaderCellDef> Country </th>
+        <th mat-header-cell *matHeaderCellDef>Country</th>
         <td mat-cell *matCellDef="let row"> {{row.country}} </td>
       </ng-container>
   
-      <!-- Valid Column -->
+      <!-- Valid Column  | non-sortable -->
       <ng-container matColumnDef="valid">
-        <th mat-header-cell *matHeaderCellDef> Valid </th>
+        <th mat-header-cell *matHeaderCellDef>Valid</th>
         <td mat-cell *matCellDef="let row">
           <div class="validity-icon">
             <div *ngIf="row.valid; else invalidBlock" >
