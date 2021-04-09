@@ -24,6 +24,9 @@ Back End
 
 The task which this project tackles is a single-page web app to display a list of phone numbers, for which a set of rules were given to check & display phone number validity (state), as defined by the country code, and the phone number regex corresponding to each country.
 
+* Implement Filtering by phone number validity, country, or both
+* Implement Pagination & Sorting (bonus requirement)
+
 ## Available data
 
 * An SQLite database containting a "customer" table with the columns " name | phone ".
@@ -54,14 +57,25 @@ Run CustomerInfoControllerTests.java
 ## Screen Shots
 
 * Find all
+
 ![](showcase/find_all.PNG)
-* Paginationg
+
+* Pagination
+
 ![](showcase/pagination.PNG)
+
 * Sorting
+
 ![](showcase/sorting.PNG)
+
 * Filtering by Country
+
 ![](showcase/country_filter.PNG)
+
 * Filtering by Validity
+
 ![](showcase/state_filter.PNG)
+
 * Filtering by both Country & Validity
+
 ![](showcase/country_state_filter.PNG)
