@@ -52,3 +52,16 @@ Run Application.java
 Run CustomerInfoControllerTests.java
 
 ## Screen Shots
+
+* Find all
+![](showcase/find_all.PNG)
+* Paginationg
+![](showcase/pagination.PNG)
+* Sorting
+![](showcase/sorting.PNG)
+* Filtering by Country
+![](showcase/country_filter.PNG)
+* Filtering by Validity
+![](showcase/state_filter.PNG)
+* Filtering by both Country & Validity
+![](showcase/country_state_filter.PNG)
